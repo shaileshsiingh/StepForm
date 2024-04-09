@@ -25,7 +25,7 @@ const MultiStepForm = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto">
+    <div className="max-w-md mx-auto mt-8">
       <div className="bg-gray-200 h-2 rounded-full mb-4">
         <div
           className="bg-green-500 h-2 rounded-full"
@@ -34,27 +34,27 @@ const MultiStepForm = () => {
       </div>
     
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h1 className="text-lg font-semibold mb-4 bg-whitesmoke text-center py-2">
+        <h1 className="text-2xl md:text-2xl lg:text-2xl font-semibold bg-whitesmoke text-center py-2 mb-4">
           {steps[currentStep].title}
         </h1>
-        <p className="text-center">This will help us personalize your experience</p>
-    <br></br>
-        <div className="grid grid-cols-3 gap-4 ">
+        <p className="text-center text-sm md:text-base mb-4">This will help us personalize your experience</p>
+
+        <div className="flex flex-col">
           {steps[currentStep].options.map((option) => (
-            <ol
+            <div
               key={option.id}
               onClick={() => handleOptionClick(option.id)}
-              className="flex items-center justify-center cursor-pointer "
-              style={{ marginBottom: '1rem', width: '400px', height: '40px', border:'3px solid whitesmoke', cursor:'pointer', display:'flex',alignItems:'center'}}
+              className="flex items-center cursor-pointer border border-gray-300 rounded-md p-2 hover:bg-gray-100 mb-2"
             >
-<div >
-              <span >{option.icon}</span>
+              <span className="mr-2">{option.icon}</span>
               <span>{option.label}</span>
-              </div>
-            </ol>
-            
+            </div>
           ))}
-          <button className='text-lg font-semibold mb-4 bg-whitesmoke text-center py-2'>Continue</button>
+        </div>
+        <div className="flex justify-center mt-4">
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Continue
+          </button>
         </div>
       </div>
     </div>
