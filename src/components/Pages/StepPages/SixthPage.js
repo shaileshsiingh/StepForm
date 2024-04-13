@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import ProgressBar from '../AdditionalPages/ProgressBar';
 import Header from '../AdditionalPages/Header';
 import LearningPath from '../../../images/path.png';
 
-const SeventhPage = () => {
+const SixthPage = () => {
   const [activeContainer, setActiveContainer] = useState(null);
 
   const handleContainerClick = (containerId) => {
@@ -71,4 +70,4 @@ const SeventhPage = () => {
   );
 };
 
-export default SeventhPage;
+export default SixthPage;

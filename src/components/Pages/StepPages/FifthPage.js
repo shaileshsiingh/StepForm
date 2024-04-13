@@ -8,7 +8,7 @@ import ContinueButton from "../AdditionalPages/Button";
 import YellowCircleLoader from '../AdditionalPages/Loader';
 import Rate from '../../../images/rating.png';
 
-export default function FormThree(){
+export default function FormFive(){
     const [stepCompleted, setStepCompleted] = useState(false);
     const text = '"Through its engaging and well-strucutred courses, Brilliant has taught me mathematical concepts that I previously struggled to understand. I now feel confident approaching both technical job interviews and real world problems solving situations."';
 

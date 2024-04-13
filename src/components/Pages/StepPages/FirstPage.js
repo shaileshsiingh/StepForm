@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ProgressBar from '../AdditionalPages/ProgressBar'; 
 import Header from '../AdditionalPages/Header'; 
 import StudentImage from '../../../images/student.png';
@@ -11,16 +11,11 @@ import StepContainer from '../AdditionalPages/step-container';
 import FormTwo from './SecondPage';
 import ContinueButton from '../AdditionalPages/Button';
 
-const SecondPage = () => {
-  // useState for handling click event on the options
-  // Initially none of the options are selected
-  const [activeContainer, setActiveContainer] = React.useState(null);
+const FirstPage = () => {
+  const [activeContainer, setActiveContainer] = useState(null);
+  const [stepCompleted, setStepCompleted] = useState(false);
+  const [isLoading, setIsLoading] = useState(true); // New state for loading animation
 
-  // useState for handling step completed
-  // Initially the step is not completed so the state is set to false
-  const [stepCompleted, setStepCompleted] = React.useState(false);
-
-  // Define step data for each container
   const steps = [
     {
       id: 'student',
@@ -61,24 +56,38 @@ const SecondPage = () => {
   ];
 
   const handleContainerClick = (containerId) => {
-    setActiveContainer(containerId); // Set the clicked option as the active one
+    setActiveContainer(containerId);
   };
 
   const handleContinue = () => {
     if (activeContainer) {
-      setStepCompleted(true); // Mark the step as completed
+      setStepCompleted(true);
     }
   };
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsLoading(false); // Simulating the end of loading after 1 second
+    }, 1000);
+
+    return () => clearTimeout(timeout); // Clean up the timeout on unmount
+  }, []); // Empty dependency array ensures this effect runs only once
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p>Loading...</p>
+      </div>
+    );
+  }
+
   if (stepCompleted) {
-    // Render the next component when the step is completed
     return <FormTwo />;
   }
 
   return (
     <main>
       <div className="m-8 w-5/6 mx-auto">
-        {/* Horizontally centers the container */}
         <ProgressBar initialProgress={10} />
         <Header
           h1="Which describes you best?"
@@ -88,17 +97,15 @@ const SecondPage = () => {
         />
       </div>
 
-      {/* Using different margin left styles for different screen sizes to achieve responsive design. */}
       <section className='lg:ml-[0%] md:ml-[-10%] sm:ml-[-20%] ml-[-40%]'>
         {steps.map((step) => (
-          // For each option in this step, display the options
           <StepContainer
             key={step.id}
             src={step.src}
             category={step.category}
             description={step.description}
-            onClick={() => handleContainerClick(step.id)} // Handles clicking the option
-            isActive={activeContainer === step.id} // Checks if the option is clicked and sets it to active
+            onClick={() => handleContainerClick(step.id)}
+            isActive={activeContainer === step.id}
           />
         ))}
       </section>
@@ -111,4 +118,4 @@ const SecondPage = () => {
   );
 };
 
-export default SecondPage;
+export default FirstPage;

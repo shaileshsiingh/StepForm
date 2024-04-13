@@ -1,7 +1,7 @@
 // Import necessary components
 import React, { useState, useEffect, useRef } from 'react'; 
 import '../../../App.css'; 
-import LearningRecommendations from '../StepPages/SeventhPage'; 
+import LearningRecommendations from '../StepPages/SixthPage'; 
 
 // Define the YellowCircleLoader functional component
 const YellowCircleLoader = ({ size = 100 }) => {

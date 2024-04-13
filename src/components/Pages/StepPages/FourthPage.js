@@ -5,11 +5,11 @@ import ArithmeticImage from '../../../images/math1.png';
 import AlgebraicImage from '../../../images/math2.png';
 import QuadraticImage from '../../../images/math3.png';
 import CalculusImage from '../../../images/math4.png';
-import FormFive from './SixthPage';
+import FormFive from './FifthPage';
 import ContinueButton from '../AdditionalPages/Button';
 import PreviousButton from '../AdditionalPages/PreviousButton';
 
-const FifthPage = () => {
+const FourthPage = () => {
   // useState for handling click event on the options
   // Initially none of the options are selected
   const [activeContainer, setActiveContainer] = React.useState(null);
@@ -115,4 +115,4 @@ const FifthPage = () => {
   );
 };
 
-export default FifthPage;
+export default FourthPage;
