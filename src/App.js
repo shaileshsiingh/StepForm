@@ -1,12 +1,8 @@
-import DemoComponent from "./DemoComponent";
-import MultiStepForm from "./components/MultiStepForm";
-
-
+import './App.css';
+import SecondPage from './components/Pages/StepPages/FirstPage'
 function App() {
   return (
-    <div>
-      <MultiStepForm/>
-    </div>
+<SecondPage/>
   );
 }
 
